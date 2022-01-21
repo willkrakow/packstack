@@ -11,6 +11,7 @@ export const INVENTORY = "/inventory"
 export const PROFILE = "/profile"
 export const NEW_PACK = "/pack/new"
 export const PACK_FORM = "/pack/:id"
+export const SETTINGS = "/settings"
 
 export const getPackPath = (id: number, title: string): string => {
   const slug = slugify(title, { replacement: "-", lower: true })

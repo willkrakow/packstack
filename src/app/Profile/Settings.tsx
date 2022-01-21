@@ -14,6 +14,8 @@ import { PageTitle, Box, Grid } from "styles/common";
 import { useUserData } from "hooks/useUserData";
 import { useUpdateUser } from "queries/user";
 import { WeightUnit } from "enums";
+import { useHistory } from "react-router-dom";
+import { FormSubmitButton } from "./styles";
 
 interface FormValues {
   username: string;
@@ -24,10 +26,11 @@ interface FormValues {
   website_url: string;
 }
 
-export const Profile: FC = () => {
+export const Settings: FC = () => {
   const user = useUserData();
   const updateUser = useUpdateUser();
 
+  const history = useHistory()
   return (
     <PageWrapper>
       <DocumentTitle title={`Packstack | My Packs`}>
@@ -67,6 +70,9 @@ export const Profile: FC = () => {
                     updateUser.mutate(values, {
                       onSuccess: () => {
                         alertSuccess({ message: "User settings updated!" });
+                        setTimeout(() => {
+                            history.push("/profile")
+                        }, 1000);
                       },
                       onError: () => {
                         alertError({ message: "Unable to update user" });
@@ -81,9 +87,9 @@ export const Profile: FC = () => {
                       submitForm,
                       submitCount,
                       errors,
+                      dirty,
                     } = props;
                     const wasSubmitted = submitCount > 0;
-
                     return (
                       <>
                         <Input
@@ -137,14 +143,15 @@ export const Profile: FC = () => {
                             setFieldValue("default_weight_unit", option.value)
                           }
                         />
-                        <Button
+                        <FormSubmitButton
                           onClick={submitForm}
                           block={true}
                           type="primary"
                           style={{ marginTop: "16px" }}
+                          disabled={!dirty}
                         >
                           Save
-                        </Button>
+                        </FormSubmitButton>
                       </>
                     );
                   }}

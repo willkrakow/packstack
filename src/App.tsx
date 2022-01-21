@@ -10,6 +10,7 @@ import {
   PROFILE,
   REQUEST_RESET,
   RESET_PASSWORD,
+  SETTINGS,
 } from "./routes"
 
 import {
@@ -23,7 +24,7 @@ import {
 import { Inventory } from "app/Inventory"
 import PackForm from "app/PackForm"
 import { Profile } from "app/Profile"
-
+import { Settings } from "app/Profile/Settings"
 import { Header } from "app/components/Header"
 
 const App = () => {
@@ -41,6 +42,7 @@ const App = () => {
           <ProtectedRoute path={INVENTORY} component={Inventory} />
           <ProtectedRoute path={PACK_FORM} component={PackForm} />
           <ProtectedRoute path={PROFILE} component={Profile} />
+          <ProtectedRoute path={SETTINGS} component={Settings} />
         </Switch>
       </Suspense>
     </div>
