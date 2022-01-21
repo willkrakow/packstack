@@ -6,7 +6,6 @@ import { PageWrapper } from "styles/common"
 import { PageTitle, } from "styles/common"
 import { useUserData } from "hooks/useUserData"
 import { EditButton, ProfileAttribute, ProfileBox } from "./styles"
-import { useTheme } from "styled-components"
 
 
 function getSocialMediaUsername(url: string){
@@ -16,7 +15,6 @@ function getSocialMediaUsername(url: string){
 }
 export const Profile: FC = () => {
   const user = useUserData()
-  const theme = useTheme()
   //@ts-ignore
   return (
     <PageWrapper>
