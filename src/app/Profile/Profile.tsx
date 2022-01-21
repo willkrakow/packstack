@@ -32,13 +32,9 @@ export const Profile: FC = () => {
       <DocumentTitle title={`Packstack | My Packs`}>
         <>
           <PageTitle>
-            <h1>Packs</h1>
+            <h1>Profile</h1>
           </PageTitle>
           <Grid>
-            <div className="two-thirds">
-              <h3>Packs</h3>
-              <PackList loading={packs.isLoading} packs={packs.data || []} />
-            </div>
             <div className="third">
               <h3>Settings</h3>
               <Box>
