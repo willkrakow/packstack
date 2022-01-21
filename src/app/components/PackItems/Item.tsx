@@ -60,7 +60,7 @@ const Item: React.FC<ItemProps> = ({ item, removeItem, updateItem, index }) => {
               <div className="align-right">
                 {item.weight} {item.weight_unit}
               </div>
-              <div className="align-right">
+              <div className="align-center">
                 <WornIndicator className={worn ? "active" : ""}>
                   <Tooltip
                     title="Worn items are excluded from base weight"
